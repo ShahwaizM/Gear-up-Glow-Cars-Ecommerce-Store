@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<!-- navbar -->
+  <div class="container-fluid login-banner" id="heade-main">
+	  <div class="headerpad container ">
+	{% include "navbar.html"%}
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="fadeInleft col-md-6 login-intro">
+           <h1>Welcome Back!</h1>
+           <h2> Log in to access your account, manage your orders, and explore the latest car care products tailored to your preferences. Join us in maintaining the beauty and performance of your car with ease and convenience.
+           </h2>
+        </div>
+        <div  class="fadeInright col-md-6 ">
+            <div class="login" >
+            <div class="text-center col">
+            
+            <i style="font-size: 160px; color:white;" class="fa fa-user"></i>
+            <hr>
+            </div>
+            <h3  style="text-align:center" >Login</h3>
+            <form action="{% url 'login' %}" method="POST">
+                
+                {% csrf_token %}
+
+                {% if error%}
+                <div class="alert alert-danger" role="alert">
+                    {{error}}
+                </div>
+                {% endif %}
+                <!-- email -->
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input required type="email" name="email" id=""
+                    value="{{values.email}}" 
+                    class=" form-control-sm form-control" placeholder="abc@gmail.com">
+                </div>
+
+                <!-- password -->
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="password" 
+                    name="password" 
+                    id=""
+                     class="form-control form-control-sm" >
+                </div>
+
+                <!--Checkme button-->
+            <div class=" form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label d-grid gap-2" for="exampleCheck1">Remmeber me </label>
+               <br>
+                <button type="submit" style="font-size:18px;" class="btn  btn-success ">Login</button>
+            </form>
+            <br>
+            <p style="text-transform:none;">Create an account <a style="color:orange ;text-decoration: underline;" href="/signup">Sign Up</a></p>
+        </div>
+    </div>
+    </div>
+</div>
+
+</div>
+</div>
+	{% endblock %}

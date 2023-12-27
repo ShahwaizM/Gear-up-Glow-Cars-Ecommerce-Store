@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'store/css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'store/css/style.css' %}" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <title>E-commerce Store</title>
+
+    <style>
+      .navbar-header,
+      .navbar-default a {
+        background-color: transparent !important;
+        border: none !important;
+        color: white !important;
+      }
+      .black .navbar-brand {
+        padding-top: 15px !important;
+      }
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      } 
+      @keyframes fadeInleft {
+        from {
+          opacity: 0;
+          transform: translateX(-100%);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      @keyframes fadeInright {
+        from {
+          opacity: 0;
+          transform: translateX(100%);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      .animated {
+        animation-duration: 1.5s;
+        animation-fill-mode: both;
+      }
+      .fadeInleft{
+        animation: fadeInleft 1.5s forwards;
+        opacity: 0;
+      }
+      .fadeInright{
+        animation: fadeInright 1.5s forwards;
+        opacity: 0;
+      }
+      .navbar {
+        animation-name: fadeInDown;
+      }
+      
+    </style>
+  </head>
+
+  <body>
+    {% block header %}
+      <!-- navbar -->
+      <div class="container-fluid store-banner" id="heade-main">
+        <div class="headerpad container">
+          {% include 'navbar.html' %}
+        </div>
+        <div class="container  fadeInleft text-center centered">
+          <h3>Your Ride with Premium Accessories and Cleaning Products</h3>
+          <h1>Discover top-quality auto decoration and cleaning parts for your vehicle.</h1> <br>
+        </div>
+      </div>
+    {% endblock %}
+    <!--  -->
+    {% block content %}
+    {% endblock %}
+
+    {% include 'footer.html' %}
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+      $(document).ready(function () {
+        $('.carousel').carousel({
+          interval: 2000 // Change the interval as needed (in milliseconds)
+        })
+      })
+    </script>
+  </body>
+</html>

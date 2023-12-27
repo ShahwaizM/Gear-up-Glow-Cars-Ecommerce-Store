@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+
+{% load cart %}
+{% load custom_filter %}
+<!-- body -->
+<br> {% block header %}
+<!-- navbar -->
+  <div class="container-fluid" id="heade-main">
+	  <div class="headerpad container ">
+	{% include "navbar.html"%}
+</div>
+	<div class="container fadeInleft text-center centered">
+		<h3>Welcome to our Online Car Store GEAR UP AND GLOW</h3>
+		<h1>your one-stop destination for high-quality car decoration and cleaning products. </h1>
+		<button onclick="window.location.href='/store'" class="centered-button">VISIT OUR STORE</button>
+	  </div>
+	</div> 
+</div> 
+	{% endblock %}
+	{% block content %}
+
+	<div class="container-fluid shop">
+		<div class="container  shop-b text-center">
+			<div class="shop-title">
+				<h1>OUR PRODUCTS</h1>
+			</div>
+			<div class="row">
+				{% for product in products|slice:":15" %}
+				<div class="d-flex col-md-4" id={{product.id}} style="">
+					<div class=" product-card card">
+						<a href="{% url 'productdetails' pk=product.pk %}">
+							<img class=" img-responsive card-img-top" src="{{product.image.url}}" alt="Card image cap">
+						</a>	
+					<div class="card-body">
+						<h2 class="card-title">{{product.name}}</h2>
+						<h4 class="card-text"><b>{{product.price|currency}}</b></h4>
+						<!-- {{product | is_in_cart:request.session.cart }} -->
+					</div>
+				<div class="card-footer p-0">
+					{% comment %} <form action="/#{{product.id}}" method="POST">
+						{% csrf_token %}
+						<input hidden type="text" name='product' value='{{product.id}}'>
+						<input type="submit" style="font-size: 18px;" class="btn btn-success btn-block" value="Add To Cart">
+					</form> {% endcomment %}
+					{% if product|is_in_cart:request.session.cart %}
+						<div class="row cartbtn "style="display:flex; padding:15px;">
+							<form action="/" class="col " method="post">
+								{% csrf_token %}
+								<input hidden type="text" name='product' value='{{product.id}}'>
+								<input hidden type="text" name='remove' value='True'>
+								<input type="submit" value=" - "class="btn-success btn ">
+							</form>
+							<div style=" margin:0px 10px"class="text-center  btn btn-success">{{product|cart_quantity:request.session.cart}} in Cart</div>
+							<form action="/" class=" " method="post">
+								{% csrf_token %}
+								<input hidden type="text" name='product' value='{{product.id}}'>
+								<input type="submit" value=" + " class="btn-success btn">
+							</form>
+						</div>
+						{% else %}
+						<form action="" method="POST" class="">
+							{% csrf_token %}
+							<input hidden type="text" name='product' value='{{product.id}}'>
+							<input type="submit" class=" btn-success btn     form-control"
+								value="Add To Cart">
+						</form>
+						{% endif %}
+				</div>
+			</div>
+		</div>
+			
+				{% endfor %}
+			</div>
+		<button onclick="window.location.href='/store'" class="product-btn">VIEW ALL PRODUCTS</button>
+	</div>
+
+	</div>
+</div>
+<div class="third">
+    <div class="third-info">
+      <div class="third-box text-center">
+        <div class="text-center third-title">Finest And Effective Products For You</div>
+        <div class="third-desc text-center">
+          The <span class="orange">Best</span> Car Care Experience For <span class="orange">You & Your Ride</span>
+        </div>
+        <button onclick="window.location.href='/contact'" class="contact-btn">Contact Us</button>
+      </div>
+    </div>
+  </div>
+  
+  {% endblock %}

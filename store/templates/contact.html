@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<!-- navbar -->
+  <div class="container-fluid contact-banner" id="heade-main">
+	  <div class="headerpad container ">
+	{% include "navbar.html"%}
+</div>
+	<div class="container fadeInleft text-center centered">
+		<h3>Need assistance? We're here to help!</h3>
+		<h1>Get in touch with our team today for expert advice and support.
+		</h1>
+		<button onclick="window.location.href='/store'" class="centered-button">VISIT OUR PRODUCTS CATALOGUE</button>
+	  </div>
+	</div> 
+</div> 
+	{% endblock %}
+
+{% block content %}
+<div class=" container-fluid shop">
+<div class="container  shop-b">
+    <br><br>
+    <div class="row contact1 ">
+        <div class="fadeInleft col-md-6" style="color:white !important;padding: 10px;">
+            <h1>Get in Touch</h1><br>
+            <h4>We'd love to hear from you! Whether you have a question about a product or need assistance with your order, our friendly team is here to help. Contact us today to discover how <span class="orange">GEAR UP & GLOW</span> can enhance your car care and decoration needs.
+            </h4><br>
+            <h3 >CONTACT INFORMATION</h3>
+            <p><a  style="color:white !important;"href="mailto:gearupndglow@gmail.com"><i class="orange fa fa-envelope">&nbsp</i> gearupndglow@gmail.com</a></p>
+            <p><a  style="color:white !important;"href="phone"><i class=" orange fa fa-phone ">&nbsp</i>+9334-5858567</a></p>
+            <p><a  style="color:white !important;"href="phone"><i class="fa fa-phone orange">&nbsp</i>+9312-5800367</a></p>
+
+            <br>
+            <h3>GEAR UP & GLOW Co-Blue Area </h3>
+            <p><a style="color:white !important;"href="https://maps.app.goo.gl/d15DomrboBvvgqpt5"><i class="fa orange fa-map-marker">&nbsp</i>Block no 5, Street 15F, Opposite to Tehzeeb Bakers, Blue Area, Islamabad, Pakistan</a>
+            </p>
+
+            <p style="font-weight: lighter;"> <strong> Monday - Friday:</strong> 7:00am - 3:00pm <br>
+                <strong>Saturday & Sunday:</strong> 8:00am - 3:00pm</p>
+            <br>
+            <ul class="list-inline social-icons " style="color:white !important">
+                <li class="list-inline-item"><a href="https://facebook.com"><i class="fa fa-brands fa-facebook"></i></a></li>
+                <li class="list-inline-item"><a href="https://twitter.com"><i class="fa fa-twitter fa-brands"></i></a></li>
+                <li class="list-inline-item"><a href="https://instagram.com"><i class="fa fa-instagram fa-brands"></i></a></li>
+                <li class="list-inline-item"><a href="https://www.youtube.com"><i class="fa fa-brands fa-youtube"></i></a></li>
+
+            </ul>
+        </div>
+        <div class="fadeInright col-md-6" style="padding: 20px;">
+            
+                <div class="q-form">
+                    <h2>General Questions</h2> <br>
+                    <form method="post" action="{% url 'contact_page' %}">
+                        {% comment %} {% csrf_token %} {% endcomment %}
+                        {% csrf_token %}
+                        {% if error_message %}
+                        <div class="alert alert-danger">
+                            {{ error_message }}
+                        </div>
+                        {% endif %}
+                        
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input  type="text"  name="firstName"class="form-control" id="firstName" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                                <input type="text" name="lastName"class="form-control" id="lastName" placeholder="">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input  name="email" style="background-color: white;color:black!important; "type="email" class="form-control" id="email" placeholder="">
+                        </div>
+                
+                        <div class="form-group">
+                            <label for="subject">Message Subject</label>
+                            <input  type="text" name="subject" class="form-control" id="subject" placeholder="">
+                        </div>
+                
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea  class="form-control" name="message" id="message" rows="5" placeholder=""></textarea>
+                        </div>
+                        <button  type="submit" class="product-btn ">SEND MESSAGE</button>
+                    </form>    
+                </div>
+        </div>
+    </div>
+</div></div>  
+{% endblock %}

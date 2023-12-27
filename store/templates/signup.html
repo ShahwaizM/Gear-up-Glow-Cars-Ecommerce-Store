@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+
+
+{% block header %}
+<!-- navbar -->
+  <div class="container-fluid signup-banner" id="heade-main">
+	  <div class="headerpad container ">
+	{% include "navbar.html"%}
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 fadeInleft login-intro">
+           <h1> Elevate Your Car Care Experience with Us!</h1>
+           <h2> Ready to take your car care experience to the next level? Sign up now to access exclusive deals, personalized recommendations, and more!
+           </h2>
+        </div>
+        <div  class="fadeInright col-md-6 ">
+            <div class="login" >
+            <div class="text-center col">
+            
+                <i style="font-size: 150px; color:white;" class="fa fa-user"></i>
+            <hr>
+            </div>
+            <h3 class="" style="text-align:center">SIGN UP</h3>
+            <form action="/signup" method="POST">
+                
+                {% csrf_token %}
+
+                {% if error%}
+                <div class="alert alert-danger" role="alert">
+                    {{error}}
+                </div>
+                {% endif %}
+                <!-- firstname -->
+                <div class="form-group">
+                    <label for="">First Name</label>
+                    <input type="text" name="firstname"
+                     id="" value="{{values.first_name}}" class="form-control form-control-sm" 
+                     placeholder="">
+                </div>
+
+                <!-- last name -->
+                <div class="form-group">
+                    <label for="">Last Name</label>
+                    <input type="text" name="lastname" 
+                    id="" value="{{values.last_name}}" class="form-control form-control-sm"
+                    >
+                </div>
+
+                <!-- phone -->
+                <div class="form-group">
+                    <label for="">Phone</label>
+                    <input type="text" name="phone" 
+                    id="" class="form-control form-control-sm"
+                    value="{{values.phone}}"
+                    placeholder="9876543210"
+                    >
+                </div>
+                <!-- email -->
+                <div class="form-group">
+                    <label for="">Email</label>
+                    <input required type="email" name="email" id=""
+                    value="{{values.email}}" 
+                    class=" form-control-sm form-control" placeholder="abc@gmail.com">
+                </div>
+
+
+                <!-- password -->
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="password" 
+                    name="password" 
+                    id=""
+                     class="form-control form-control-sm">
+                </div>
+
+                <!--Checkme button-->
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label d-grid gap-2" for="exampleCheck1">Check me out</label>
+                </div>
+                <hr>
+                <button type="submit" style="font-size:18px" class=" btn btn-success">Create an account</button>
+                <br>
+                <p style="text-transform:none;">Already have account <a style="color:orange ;text-decoration: underline;" href="/login">log in</a></p>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+{% endblock %}

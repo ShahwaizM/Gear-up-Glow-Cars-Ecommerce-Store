@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load cart %}
+{% load custom_filter %}
+{% block header %}
+  <!-- navbar -->
+  <div class="container-fluid about-banner" id="heade-main">
+    <div class="headerpad container">
+      {% include 'navbar.html' %}
+    </div>
+    <div class="container fadeInleft text-center centered">
+      <h3>Passionate about cars. Dedicated to quality.</h3>
+      <h1>your premier destination for top-quality auto decoration and cleaning parts</h1><br>
+    </div>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <div class="container-fluid info ">
+    <div class="container fadeInright info-content">
+      <div class="info-title">
+        <h1 class="text-center">ABOUT US</h1>
+      </div>
+	  <div class="info-desc">
+        <h2 class="">Welcome to Gear Up & Glow, your premier destination for top-quality auto decoration and cleaning parts. We specialize in providing car enthusiasts and everyday drivers with a curated selection of products designed to enhance the appearance and cleanliness of their vehicles. From stylish accessories to premium cleaning supplies, we are dedicated to offering the best solutions to keep your car looking its best. Discover the difference at Gear Up & Glow and elevate your car care experience today.
+		</h2><div class="info-title">
+			<br><br>
+        <h1 class=" text-center">WHY CHOOSE US?</h1>
+      </div><div class="info-desc">
+        <h2 class="">We specialize in providing a wide range of products that cater to all your automotive detailing needs. From interior cleaning solutions to exterior care essentials, we have everything you need to keep your car looking its best.</h2>
+		<hr>
+        <h2><span class="orange">Quality Assurance: </span>We carefully vet each product in our inventory to ensure it meets our rigorous standards for quality and performance.<br><hr>
+			<span class="orange">Wide Selection: </span>From decorative accessories to cleaning essentials, we offer a diverse range of products to cater to different tastes and needs.<br><hr>
+			<span class="orange">Expertise: </span>Our team consists of automotive enthusiasts who are knowledgeable about our products and passionate about helping customers find the perfect solutions for their vehicles.<br>
+		<hr>
+		<span class="orange">Customer Satisfaction: </span>At Gear Up & Glow, customer satisfaction is our top priority. We strive to provide exceptional service, fast shipping, and reliable support to ensure that every customer has a positive shopping experience with us. </h2>
+	</div>
+    </div>
+  </div>
+</div>
+{% endblock %}
